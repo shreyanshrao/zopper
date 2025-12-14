@@ -1,4 +1,125 @@
-Retail Attach Rate Analysis & Forecasting📌 Project OverviewThis project is a data analytics pipeline designed to evaluate the Attach Rate performance of retail stores across multiple branches. It processes raw monthly sales data to identify trends, categorize store performance, and forecast future metrics using statistical analysis.The tool transforms static spreadsheets into actionable business intelligence, helping management identify Top Performers to emulate and Low Performers requiring intervention.🚀 Key FeaturesData Normalization: Converts wide-format Excel data (months as columns) into long-format time-series data.Trend Analysis: Calculates the linear trend (slope) for every store to determine if performance is Improving, Stable, or Declining.Performance Categorization: Segments stores into Top, Mid, and Low performers based on dynamic thresholds.Variance Calculation: Identifies consistency issues (high variance) to spot unstable store performance.Forecasting: Predicts next month's (January) performance using a 3-month moving average.🛠️ Tech StackLanguage: Python 3.xLibraries:pandas (Data manipulation)numpy (Statistical calculations: polyfit, variance)📂 Input Data StructureThe script expects a CSV file (Jumbo & Company_ Attach % .xls - Sheet1.csv) with the following column structure:BranchStore_NameDecNovOctSepAugDelhi_NcrStore A0.230.170.160.250.24PuneStore B0.330.330.360.130.32Note: The script automatically handles the unpivoting of month columns.⚙️ Installation & UsageClone the repository:Bashgit clone https://github.com/yourusername/attach-rate-analysis.git
-Install dependencies:Bashpip install pandas numpy
-Run the analysis:Bashpython analysis_script.py
-📊 OutputThe script generates a file named Processed_Store_Analysis.csv containing the following enriched metrics:Avg_Attach_Pct: Mean performance over the period.Trend_Status: Improving / Stable / Declining.Variance: Stability score (higher = less stable).Category: Top Performer / Mid Performer / Low Performer.Jan_Forecast: Predicted value for the upcoming month.Best_Month / Worst_Month: Seasonality indicators per store.💡 Key Insights (Sample Data)Based on the analysis of the sample dataset:Top Branch: Pune (27.7% Avg) outperforms all other regions.Critical Lag: Telangana region is significantly underperforming (11.8%).Seasonality: A clear upward trend is visible company-wide, peaking in November/December.Benchmark: The store Delhi(Hauz Khas) set the company benchmark with a 62.2% average attach rate.🔮 Future ImprovementsAdd visualization (Matplotlib/Seaborn) to plot trend lines for "Low Performing" branches.Implement weighted moving averages for more accurate forecasting.Automate PDF report generation for branch managers.
+📊 Retail Attach Rate Analysis & Forecasting
+📌 Project Overview
+
+This project is a data analytics pipeline built to evaluate and forecast Attach Rate performance of retail stores across multiple branches. It processes raw monthly sales data to uncover trends, classify store performance, and predict future metrics using statistical techniques.
+
+The pipeline converts static spreadsheets into actionable business intelligence, enabling leadership to:
+
+Identify Top Performing stores to replicate best practices
+
+Detect Low Performing stores requiring corrective actions
+
+Monitor consistency and seasonality across branches
+
+🚀 Key Features
+
+Data Normalization
+
+Converts wide-format Excel data (months as columns) into long-format time-series data for analysis.
+
+Trend Analysis
+
+Computes linear trends (slope) for each store using regression to classify performance as:
+
+Improving
+
+Stable
+
+Declining
+
+Performance Categorization
+
+Dynamically segments stores into:
+
+Top Performers
+
+Mid Performers
+
+Low Performers
+
+Variance Calculation
+
+Measures performance consistency to flag unstable stores with high variability.
+
+Forecasting
+
+Predicts next month’s performance (January) using a 3-month moving average.
+
+🛠️ Tech Stack
+
+Language: Python 3.x
+
+Libraries:
+
+pandas – Data manipulation & transformation
+
+numpy – Statistical calculations (trend slope, variance)
+
+📂 Input Data Structure
+
+The script expects a CSV file named:
+
+Jumbo & Company_ Attach % .xls - Sheet1.csv
+
+Expected Format:
+Branch	Store_Name	Dec	Nov	Oct	Sep	Aug
+Delhi_NCR	Store A	0.23	0.17	0.16	0.25	0.24
+Pune	Store B	0.33	0.33	0.36	0.13	0.32
+
+📌 Note:
+The script automatically unpivots month columns into time-series format—no manual preprocessing required.
+
+⚙️ Installation & Usage
+1️⃣ Clone the Repository
+git clone https://github.com/yourusername/attach-rate-analysis.git
+cd attach-rate-analysis
+
+2️⃣ Install Dependencies
+pip install pandas numpy
+
+3️⃣ Run the Analysis
+python analysis_script.py
+
+📊 Output
+
+The pipeline generates an enriched dataset:
+
+Processed_Store_Analysis.csv
+
+Included Metrics:
+
+Avg_Attach_Pct – Average attach rate over the analysis period
+
+Trend_Status – Improving / Stable / Declining
+
+Variance – Performance stability indicator
+
+Category – Top / Mid / Low Performer
+
+Jan_Forecast – Predicted attach rate for January
+
+Best_Month – Highest performing month
+
+Worst_Month – Lowest performing month
+
+💡 Key Insights (Sample Data)
+
+From the sample dataset analysis:
+
+🏆 Top Branch: Pune (27.7% average) outperforms all other regions
+
+⚠️ Critical Lag: Telangana shows significant underperformance (11.8%)
+
+📈 Seasonality: Company-wide upward trend, peaking in November–December
+
+🎯 Benchmark Store: Delhi (Hauz Khas) leads with a 62.2% average attach rate
+
+🔮 Future Improvements
+
+📉 Add visualizations using Matplotlib / Seaborn for trend comparison
+
+📊 Implement weighted moving averages for improved forecasting accuracy
+
+📄 Automate PDF report generation for branch managers
+
+🔄 Integrate real-time data ingestion from retail systems
